@@ -14,16 +14,17 @@ Este script automatiza la instalación de varias aplicaciones y herramientas des
 Descarga el script y guárdalo en tu directorio de inicio (`~/`):
 
 ```bash
-   wget https://tu-url-del-script/setup-fedora40.sh
+   wget https://github.com/statick88/fedora40-post-install-script/setup-fedora40.sh
 ```
-Hacer el script ejecutable
+2. Hacer el script ejecutable
 
 Haz el script ejecutable con el siguiente comando:
 
 ```bash
 chmod +x setup-fedora40.sh
 ```
-Ejecutar el script
+
+3. Ejecutar el script
 
 Ejecuta el script para iniciar la instalación:
 
