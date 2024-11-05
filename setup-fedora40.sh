@@ -5,7 +5,9 @@ sudo dnf -y update && sudo dnf -y upgrade && sudo dnf -y autoremove
 
 # Install Firefox Developer Edition
 cd ~/Downloads
-wget https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US -O firefox-developer.tar.bz2
+wget https://download.mozilla.org/?product=firefox-devedition-latest-ssl &
+os=linux64 &
+lang=en-US -O firefox-developer.tar.bz2
 tar -xvjf firefox-developer.tar.bz2
 sudo mv firefox /opt/firefox-developer
 sudo ln -s /opt/firefox-developer/firefox /usr/local/bin/firefox-developer
@@ -27,15 +29,15 @@ sudo update-desktop-database
 
 # Install Docker
 sudo dnf remove -y docker \
-                  docker-client \
-                  docker-client-latest \
-                  docker-common \
-                  docker-latest \
-                  docker-latest-logrotate \
-                  docker-logrotate \
-                  docker-selinux \
-                  docker-engine-selinux \
-                  docker-engine
+  docker-client \
+  docker-client-latest \
+  docker-common \
+  docker-latest \
+  docker-latest-logrotate \
+  docker-logrotate \
+  docker-selinux \
+  docker-engine-selinux \
+  docker-engine
 
 sudo dnf -y install dnf-plugins-core
 sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
@@ -45,7 +47,7 @@ sudo systemctl enable docker
 sudo gpasswd -a $USER docker
 
 # Install VirtualBox
-sudo dnf -y install https://download.virtualbox.org/virtualbox/7.0.18/VirtualBox-7.0-7.0.18_162988_fedora40-1.x86_64.rpm
+sudo dnf -y install https://download.virtualbox.org/virtualbox/7.0.18/VirtualBox-7.1-7.1.4_165100_fedora40-1.x86_64.rpm
 sudo modprobe -a vboxdrv
 
 # Install Visual Studio Code
@@ -56,9 +58,7 @@ sudo dnf install -y code
 
 # Install GNOME Extensions
 gnome-extensions install --system dash-to-dock@micheleg.gmail.com
-gnome-extensions install --system applet@virtualbox.org
 gnome-extensions install --system docker-integration@fr
-gnome-extensions install --system removable-drive-menu@gnome-shell-extensions.gcampax.github.com
 gnome-extensions install --system gsconnect@andyholmes.github.io
 
 # Install gnome-pomodoro
@@ -80,18 +80,17 @@ sudo dnf -y install neovim
 
 # Install Quarto
 cd ~/Downloads
-wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.554/quarto-1.4.554-linux-rhel7-amd64.tar.gz
-tar -xvzf quarto-1.4.554-linux-rhel7-amd64.tar.gz
-sudo mv quarto-1.4.554 /opt/quarto
+wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.32/quarto-1.6.32-linux-rhel7-amd64.tar.gz
+tar -xvzf quarto-1.6.32-linux-rhel7-amd64.tar.gz
+sudo mv quarto-1.6.32-linux-rhel7-amd64 /opt/quarto
 sudo ln -s /opt/quarto/bin/quarto /usr/local/bin/quarto
 
 # Verify Quarto installation
 quarto --version
 
-# Install Spotify
-sudo dnf install -y snapd
-sudo ln -s /var/lib/snapd/snap /snap
-sudo snap install spotify
+# Install Spotify via Flatpak (preferred for Fedora 41)
+sudo dnf install -y flatpak
+flatpak install -y flathub com.spotify.Client
 
 # Install Oh My Bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
@@ -99,3 +98,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/mast
 # Install GIMP and Inkscape
 sudo dnf install -y gimp inkscape
 
+# Install LazyGit
+sudo dnf copr enable atim/lazygit -y
+sudo dnf install lazygit
