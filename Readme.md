@@ -1,10 +1,10 @@
-# Fedora 40 Post-Installation Script
+# Fedora Post-Installation Script
 
 Este script automatiza la instalación de varias aplicaciones y herramientas después de una instalación limpia de Fedora 40. Incluye la instalación de Firefox Developer Edition, Docker, VirtualBox, Visual Studio Code, extensiones de GNOME, gnome-pomodoro, Git, Zoom, Ranger, Neovim, Quarto, Spotify, Oh My Bash, GIMP e Inkscape.
 
 ## Requisitos Previos
 
-- Fedora 40 instalado y actualizado.
+- Fedora instalado y actualizado.
 - Conexión a Internet para descargar los paquetes.
 
 ## Instrucciones
